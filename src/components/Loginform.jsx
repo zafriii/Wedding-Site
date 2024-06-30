@@ -2,39 +2,60 @@ import React, {useState} from 'react'
 import './login.css'
 import { FaEye } from "react-icons/fa";
 import { TbEyeClosed } from "react-icons/tb"
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Loginform() {
 
-const [user,setUser] = useState({
-    email:"",
-    password:""
+    const [user, setUser] = useState({
+        email: "",
+        password: ""
+    });
 
-})
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate(); // Initialize useNavigate for navigation
 
-const [showPassword, setShowPassword] = useState(false);
+    const handleInput = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
 
+        setUser({
+            ...user,
+            [name]: value
+        });
+    };
 
-const handleInput = (e) => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    let name = e.target.name;
-    let value = e.target.value;
+        try {
+            const response = await fetch('/api/login/', { //Your API Endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
 
-    setUser({
-      ...user,
-      [name]:value 
-    })
-}
+            if (response.ok) {
+                const res_data = await response.json();
+                alert("Login successful");
+                setUser({
+                    email: "",
+                    password: ""
+                });
+                navigate("/"); // Navigate to homepage after successful login
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        } catch (error) {
+            console.error('Error logging in:', error);
+            alert("Login failed. Please try again later.");
+        }
+    };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log(user)
-}
-
-const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-};
-
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
   return (
     <div>
