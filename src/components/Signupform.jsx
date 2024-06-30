@@ -55,7 +55,7 @@ function Signupform() {
         e.preventDefault();
 
         try {
-            const response = await fetch('/api/register/', {
+            const response = await fetch('/api/register/', {//Your API Endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
