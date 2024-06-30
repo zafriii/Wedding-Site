@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './signup.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import { FaEye } from "react-icons/fa";
-import { TbEyeClosed } from "react-icons/tb";
-
+import { TbEyeClosed } from "react-icons/tb"; // Corrected import for eye closed icon
 
 function Signupform() {
     const [user, setUser] = useState({
@@ -14,13 +13,12 @@ function Signupform() {
     });
 
     const [errors, setErrors] = useState({});
-
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate(); // Initialize useNavigate for navigation
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
 
     const handleInput = (e) => {
         let name = e.target.name;
@@ -31,22 +29,21 @@ function Signupform() {
             [name]: value 
         });
 
-        
+        // Validate username
         if (name === 'username' && value.length < 3) {
             setErrors({...errors, username: 'Username must be at least 3 characters long'});
         } else {
             setErrors({...errors, username: ''});
         }
 
+        // Validate email
+        if (name === 'email' && !/\S+@\S+\.\S+/.test(value)) {
+            setErrors({...errors, email: 'Invalid email address'});
+        } else {
+            setErrors({...errors, email: ''});
+        }
 
-        if (!user.email) {
-                      errors.email = "Email is required";
-                      isValid = false;
-                  } else if (!/\S+@\S+\.\S+/.test(user.email)) {
-                      errors.email = "Invalid email address";
-                      isValid = false;
-                  }
-
+        // Validate password
         if (name === 'password' && value.length < 6) {
             setErrors({...errors, password: 'Password must be at least 6 characters long'});
         } else {
@@ -56,36 +53,39 @@ function Signupform() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user);
-        
-      
-        //Uncomment when Reg backend is done
-        // if(response.ok){
 
-        //     const res_data = await response.json();
-        //     storeTokenInLs(res_data.token);
-        //     alert("Registration successful")
-        //     setUser({
-        //         username: "",
-        //         email: "",
-        //         phone: "",
-        //         password: ""
-        //     })
-        //     navigate("/")
-        // }
+        try {
+            const response = await fetch('/api/register/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
 
-        // else {
-        //     // If status code is 400, display email already exists message
-        //     if (response.status === 400) {
-        //         alert("Email already exists. Please use a different email.");
-        //     } else {
-        //         alert("Registration failed. Please try again later.");
-        //     }
-        // }
-
+            if (response.ok) {
+                const res_data = await response.json();
+                alert("Registration successful");
+                setUser({
+                    username: "",
+                    email: "",
+                    phone: "",
+                    password: ""
+                });
+                navigate("/") // Navigate to home page after successful registration
+            } else {
+                // If status code is 400, display email already exists message
+                if (response.status === 400) {
+                    alert("Email already exists. Please use a different email.");
+                } else {
+                    alert("Registration failed. Please try again later.");
+                }
+            }
+        } catch (error) {
+            console.error('Error registering:', error);
+            alert("Registration failed. Please try again later.");
         }
-       
-    
+    };
 
     return (
         <div>
@@ -116,13 +116,15 @@ function Signupform() {
                                 autoComplete='off'
                                 value={user.email} 
                                 onChange={handleInput}
+                                className={errors.email ? 'error' : ''}
                             />
+                            {errors.email && <div className="error-message">{errors.email}</div>}
 
                             <input
                                 type='number'
                                 name='phone' 
                                 placeholder='Enter your phone no' 
-                                id='phon' 
+                                id='phone' 
                                 required
                                 autoComplete='off'
                                 value={user.phone} 
@@ -130,38 +132,32 @@ function Signupform() {
                             />
 
                             <div className="pass">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    name='password' 
+                                    placeholder='Enter your password' 
+                                    id='password' 
+                                    required
+                                    autoComplete='off'
+                                    value={user.password} 
+                                    onChange={handleInput}
+                                    className={errors.password ? 'error' : ''}
+                                />
+                                {errors.password && <div className="error-message">{errors.password}</div>}
 
-                            <input
-                                // type='password'
-                                type={showPassword ? 'text' : 'password'}
-                                name='password' 
-                                placeholder='Enter your password' 
-                                id='password' 
-                                required
-                                autoComplete='off'
-                                value={user.password} 
-                                onChange={handleInput}
-                                className={errors.password ? 'error' : ''}
-                            />
-                            {errors.password && <div className="error-message">{errors.password}</div>}
-
-                            <span 
-                                className="toggle-password" 
-                                onClick={togglePasswordVisibility}
-                            >
-                                
-                                {showPassword ? <TbEyeClosed /> : <FaEye />}
-                            </span>
-
-
+                                <span 
+                                    className="toggle-password" 
+                                    onClick={togglePasswordVisibility}
+                                >
+                                    {showPassword ? <TbEyeClosed /> : <FaEye />}
+                                </span>
                             </div>
-
 
                             <button type='submit'>Register Now</button>
 
                             <div className="login-sec">
-                            <p>Already have an account?</p>
-                            <NavLink className='loginlink' to="/login">Login</NavLink>
+                                <p>Already have an account?</p>
+                                <NavLink className='loginlink' to="/login">Login</NavLink>
                             </div>
                         </div>
                     </form>
@@ -171,4 +167,5 @@ function Signupform() {
     );
 }
 
-export default Signupform
+export default Signupform;
+
