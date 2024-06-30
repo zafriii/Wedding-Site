@@ -12,6 +12,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer'
 import Forgot from './components/Forgot'
 import Profile from './components/Profile'
+import PersonalInfo from './components/PersonalInfo'
+import Notification from './components/Notification'
+import Search from './components/Search'
+
 
 function App() {
   
