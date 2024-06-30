@@ -54,7 +54,7 @@ function Navbar() {
         {isAuthenticated ? (
           <>
             <NavLink to="/user_profile" className='username' onClick={toggleMenu}>{user.username}</NavLink>
-            <NavLink to="/logout" className='logout onClick={handleLogout}>Logout</NavLink>
+            <NavLink to="/logout" className='logout' onClick={handleLogout}>Logout</NavLink>
           </>
         ) : (
           <>
@@ -62,7 +62,6 @@ function Navbar() {
             <NavLink to="/signup" onClick={toggleMenu}>SignUp</NavLink>
           </>
         )}
-
       </div>
 
       <div className="menu-toggle" onClick={toggleMenu}>
