@@ -19,7 +19,6 @@ function HeroSection() {
         <p>platform connects you with compatible matches and provides everything you need</p>
         <p>for a perfect wedding, all in one place.</p>
 
-
         </div>
 
         </div>
@@ -30,22 +29,11 @@ function HeroSection() {
 
           </div>
 
-
         </div>
 
         <div className="hero-btn"><button>View Profile</button></div>
 
-
     </div>
-
-
-
-
-
-
-
-
-
 
   )
 }
