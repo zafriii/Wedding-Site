@@ -59,28 +59,29 @@ function Signupform() {
         console.log(user);
         
       
+        //Uncomment when Reg backend is done
+        // if(response.ok){
 
-        if(response.ok){
+        //     const res_data = await response.json();
+        //     storeTokenInLs(res_data.token);
+        //     alert("Registration successful")
+        //     setUser({
+        //         username: "",
+        //         email: "",
+        //         phone: "",
+        //         password: ""
+        //     })
+        //     navigate("/")
+        // }
 
-            const res_data = await response.json();
-            storeTokenInLs(res_data.token);
-            alert("Registration successful")
-            setUser({
-                username: "",
-                email: "",
-                phone: "",
-                password: ""
-            })
-            navigate("/")
-        }
-
-        else {
-            // If status code is 400, display email already exists message
-            if (response.status === 400) {
-                alert("Email already exists. Please use a different email.");
-            } else {
-                alert("Registration failed. Please try again later.");
-            }}
+        // else {
+        //     // If status code is 400, display email already exists message
+        //     if (response.status === 400) {
+        //         alert("Email already exists. Please use a different email.");
+        //     } else {
+        //         alert("Registration failed. Please try again later.");
+        //     }
+        // }
 
         }
        
