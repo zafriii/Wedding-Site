@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.mesh-sec{
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.circle-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.circle-container h3{
+    margin-left: 200px;
+    color: #73020C;
+    font-size:30px ;
+    position: absolute;
+    
+}
+
+.circle-text {
+    margin-left: 200px;
+    margin-top: 50px;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    
+}
+
+.circle{
+    background:#aa8443a6 ;
+    height: 300px;
+    width: 100%;
+    filter: blur(90px);
+} 
+
+
+.mesh-img .nikah2{
+    height: 300px;
+    width: 250px;
+    margin-right: 100px;
+    border-radius: 30px;
+    position: absolute;
+    left: 1000px;
+    margin-top: -150px;
+}
+
+
+.mesh-img .nikah3{
+    height: 250px;
+    width: 350px;
+    margin-right: 100px;
+    border-radius: 30px;
+    position: absolute;
+    left: 700px;
+    margin-top: -200px;
+}
+
+
+@media(max-width:1920px){
+    .circle-container h3{
+        margin-left: 280px;
+        color: #73020C;
+        font-size:30px ;
+        position: absolute;
+        margin-top: -150px;
+        
+    }
+    
+    .circle-text {
+        margin-left: 280px;
+        margin-top: 50px;
+        position: absolute;
+        color: rgb(0, 0, 0);
+        margin-top: -100px;
+        
+    }
+
+    .mesh-img .nikah2{
+        height: 350px;
+        width: 350px;
+        margin-right: 100px;
+        border-radius: 30px;
+        position: absolute;
+        left: 1380px;
+        margin-top: -300px;
+    }
+    
+    
+    .mesh-img .nikah3{
+        height: 280px;
+        width: 400px;
+        margin-right: 100px;
+        border-radius: 30px;
+        position: absolute;
+        left: 1040px;
+        margin-top: -350px;
+    }
+}
+
+
+
+@media(max-width:1400px){
+    .circle-container h3{
+        margin-left: 220px;
+        color: #73020C;
+        font-size:30px ;
+        position: absolute;
+        margin-top: -150px;
+        
+    }
+    
+    .circle-text {
+        margin-left: 220px;
+        margin-top: -100px;
+        position: absolute;
+        color: rgb(0, 0, 0);
+        
+    }
+
+    .mesh-img .nikah2{
+        height: 300px;
+        width: 250px;
+        margin-right: 100px;
+        border-radius: 30px;
+        position: absolute;
+        left: 1000px;
+        margin-top: -300px;
+    }
+    
+    
+    .mesh-img .nikah3{
+        height: 250px;
+        width: 350px;
+        margin-right: 100px;
+        border-radius: 30px;
+        position: absolute;
+        left: 700px;
+        margin-top: -320px;
+    }
+}
