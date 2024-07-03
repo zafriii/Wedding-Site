@@ -1,23 +1,3 @@
-// import React from 'react'
-// import { NavLink } from 'react-router-dom';
-// import './profile.css'
-
-// function Pronav() {
-//   return (
-//     <div className='pronav'>
-//         <div className='pronav-links'>
-//                     <NavLink to="/personal_info" className='active' >Personal Informations</NavLink>
-//                     <NavLink to="/notification">Notifications</NavLink>
-//                     <NavLink to="/search" >Search Profiles</NavLink>
-//         </div>
-
-//     </div>
-//   )
-// }
-
-// export default Pronav
-
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './profile.css';
