@@ -23,7 +23,6 @@ function App() {
   return (
     <>
     
-
       <BrowserRouter>
           <Navbar/> 
             <Routes>    
@@ -41,16 +40,10 @@ function App() {
                 <Route path='/personal_info' element={<PersonalInfo/>}/>
                 <Route path='/notification' element={<Notification/>}/>
                 <Route path='/search' element={<Search/>}/>
-                <Route path='/user_own_profile' element={<UserProfile/>}/>
-           
+                <Route path='/user_own_profile' element={<UserProfile/>}/>          
             </Routes>
-
-            <Footer/>
-         
-      </BrowserRouter>
-
-     
-      
+            <Footer/>        
+        </BrowserRouter>
       
     </>
   )
