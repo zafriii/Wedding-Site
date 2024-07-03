@@ -31,7 +31,6 @@ function App() {
                 <Route path='/contact' element={<Contact/>}/>
                 <Route path='/articles' element={<Articles/>}/>
                 <Route path='/kabin_notary' element={<Notary/>}/>
-                {/* <Route path='/singleproduct/:id' element={<SingleProduct/>}/>  */}
                 <Route path='/nikah_essentials' element={<Essentials/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/signup' element={<Signup/>}/>
