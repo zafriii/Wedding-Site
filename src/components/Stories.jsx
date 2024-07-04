@@ -12,7 +12,7 @@ function Stories() {
 
             <img src='images/paralax.jpg'></img>
 
-            <p>Our stories</p>
+            <span><h3>Akkas & Kulsum - </h3></span><p>Our stories</p>
 
          </div>
 
