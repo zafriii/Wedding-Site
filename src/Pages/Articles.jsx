@@ -1,8 +1,12 @@
 import React from 'react'
+import Stories from '../components/Stories'
 
 function Articles() {
   return (
-    <div>Articles</div>
+
+    <div>
+      <Stories/>
+    </div>
   )
 }
 
