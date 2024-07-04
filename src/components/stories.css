@@ -20,7 +20,11 @@
 .story-card img{
     height: 300px;
     width: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
+
 
 .story-card p{
     font-family: "Roboto", sans-serif;
