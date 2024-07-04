@@ -25,10 +25,15 @@
     margin-left: 20px;
 }
 
-
 .story-card p{
     font-family: "Roboto", sans-serif;
     font-size: 18px;
+    margin-left: 5px;
+    margin-top: 22px;
+}
+
+.story-card span{
+    font-family: "Roboto", sans-serif;
     margin-left: 20px;
     margin-top: 20px;
 }
