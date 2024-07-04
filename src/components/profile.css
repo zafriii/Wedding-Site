@@ -10,34 +10,36 @@
     margin-left: 250px;
 }
 
-
-
-
-.pronav-links{
+ .pronav-links {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     margin-top: 30px;
     margin-left: 230px;
     width: 500px;
-    
+    position: relative; /* Make sure the parent is positioned */
 }
 
-.pronav-links a{
+.pronav-links a {
     margin-left: 10px;
     text-decoration: none;
     color: black;
     font-family: "Roboto", sans-serif;
     font-size: 17px;
+    position: relative; /* Make sure the links are positioned */
 }
 
-
-.pronav-links a:hover{
-    text-decoration: 3px solid underline #73020C; 
+.pronav-links a:hover {
+    color: #73020C;
 }
 
-
-.pronav-links a.active{
-    text-decoration: 3px solid underline #73020C;
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0;
+    top: 20px;
+    background: #73020C;
+    transition: left 0.3s ease, width 0.3s ease;
 }
-
